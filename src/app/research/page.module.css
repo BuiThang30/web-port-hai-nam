@@ -1,0 +1,183 @@
+.page {
+  /* Không dùng container-type ở đây để ảnh robot có thể nằm trên nav */
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background-color: #ffffff;
+}
+
+/* 1 đơn vị thiết kế (px ở khung 1440) = var(--u) */
+.content {
+  --u: calc(100vw / 1440);
+  width: 100%;
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 820;
+  background-color: #5965ff;
+}
+
+/* Cắt chữ ở đáy banner + làm container để đo đúng chiều rộng thật */
+.bannerClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: inline-size;
+  --bu: calc(100cqw / 1440); /* 1 đơn vị thiết kế theo chiều rộng banner */
+}
+
+.bannerText {
+  position: absolute;
+  left: calc(528 * var(--bu));
+  top: calc(var(--top) * var(--bu));
+  margin: 0;
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(160 * var(--bu));
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.solid {
+  color: #ffffff;
+}
+
+.robot {
+  position: absolute;
+  z-index: 101; /* cao hơn nav (z-index: 100) */
+  left: 0.625%;      /* 9 / 1440 */
+  bottom: 0;         /* dính đáy vùng xanh */
+  width: 56.6%;      /* 815 / 1440 */
+  height: 101.7%;    /* 834 / 820, phần dư 14px tràn lên nav */
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ---------- Projects ---------- */
+.sections {
+  width: calc(1217 * var(--u));
+  margin: 0 auto;
+  padding-top: calc(172 * var(--u));
+  padding-bottom: calc(277 * var(--u));
+}
+
+.title {
+  margin-bottom: calc(30 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(64 * var(--u));
+  font-weight: 700;
+  line-height: calc(54 * var(--u));
+  color: #5965ff;
+  white-space: pre; /* giữ xuống dòng ở "Vinschool Innovation\nand Research Challenge" */
+}
+
+.text {
+  margin-bottom: calc(60 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(24 * var(--u));
+  font-weight: 300;
+  line-height: calc(24 * var(--u));
+  color: #231057;
+  text-align: justify;
+}
+
+.altFont {
+  font-family: var(--font-42dot), sans-serif;
+  color: #000000;
+}
+
+.divider {
+  height: 0;
+  margin: calc(64 * var(--u)) 0 calc(34 * var(--u));
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+/* ---------- Media ---------- */
+.img {
+  object-fit: cover;
+}
+
+.triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  position: relative;
+  height: calc(266 * var(--u));
+}
+
+.shot {
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.paper {
+  width: calc(543 * var(--u));
+  height: calc(515 * var(--u));
+}
+
+.fridge {
+  width: calc(763 * var(--u));
+  height: calc(500 * var(--u));
+}
+
+/* ---------- Mobile / Tablet ---------- */
+@media (max-width: 768px) {
+  .sections {
+    width: calc(100% - 40px);
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    font-size: 28px;
+    line-height: 1.25;
+    white-space: pre-line;
+  }
+
+  .text {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .divider {
+    margin: 36px 0 28px;
+  }
+
+  .triple {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cell {
+    height: auto;
+    aspect-ratio: 406 / 266;
+  }
+
+  .paper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 543 / 515;
+  }
+
+  .fridge {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 763 / 500;
+  }
+}

@@ -1,0 +1,180 @@
+.page {
+  /* Không dùng container-type ở đây để ảnh robot có thể nằm trên nav */
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background-color: #ffffff;
+}
+
+/* 1 đơn vị thiết kế (px ở khung 1440) = var(--u) */
+.content {
+  --u: calc(100vw / 1440);
+  width: 100%;
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 820;
+  background-color: #5965ff;
+}
+
+/* Cắt chữ ở đáy banner */
+.bannerClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bannerText {
+  position: absolute;
+  left: calc(543 * var(--u));
+  top: calc(var(--top) * var(--u));
+  margin: 0;
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(135 * var(--u));
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.solid {
+  color: #ffffff;
+}
+
+.robot {
+  position: absolute;
+  z-index: 101; /* cao hơn nav (z-index: 100) */
+  left: 0.625%;      /* 9 / 1440 */
+  bottom: 0;         /* dính đáy vùng xanh */
+  width: 56.6%;      /* 815 / 1440 */
+  height: 101.6%;    /* 833 / 820, phần dư 13px tràn lên nav */
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ---------- Projects ---------- */
+.sections {
+  width: calc(1217 * var(--u));
+  margin: 0 auto;
+  padding-top: calc(172 * var(--u));
+  padding-bottom: calc(156 * var(--u));
+}
+
+.title {
+  margin-bottom: calc(30 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(64 * var(--u));
+  font-weight: 700;
+  line-height: calc(54 * var(--u));
+  color: #5965ff;
+  white-space: nowrap;
+}
+
+.textGroup {
+  margin-bottom: calc(60 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  color: #231057;
+}
+
+.altFont {
+  font-family: var(--font-42dot), sans-serif;
+  color: #000000;
+}
+
+.text {
+  font-size: calc(24 * var(--u));
+  font-weight: 300;
+  line-height: calc(24 * var(--u));
+  text-align: justify;
+}
+
+.text + .text {
+  margin-top: calc(24 * var(--u));
+}
+
+.divider {
+  height: 0;
+  margin: calc(64 * var(--u)) 0 calc(34 * var(--u));
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+/* ---------- Media ---------- */
+.img {
+  object-fit: cover;
+}
+
+.triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  position: relative;
+  height: calc(266 * var(--u));
+}
+
+.wide {
+  position: relative;
+  width: calc(957 * var(--u));
+  height: calc(545 * var(--u));
+  margin: 0 auto;
+}
+
+/* ---------- Mobile / Tablet ---------- */
+@media (max-width: 768px) {
+  .sections {
+    width: calc(100% - 40px);
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    font-size: 28px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .textGroup {
+    margin-bottom: 24px;
+  }
+
+  .text {
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .text + .text {
+    margin-top: 14px;
+  }
+
+  .divider {
+    margin: 36px 0 28px;
+  }
+
+  .triple {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cell {
+    height: auto;
+    aspect-ratio: 406 / 266;
+  }
+
+  .wide {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 957 / 545;
+  }
+}

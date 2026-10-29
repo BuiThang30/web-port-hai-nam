@@ -1,150 +1,93 @@
 .page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
-.main {
-  display: flex;
-  flex: 1;
+  container-type: inline-size;
   width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
+  background-color: #f8f9fd;
 }
 
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+/* 1 đơn vị thiết kế (px ở khung 1440) = var(--u) */
+.home {
+  --u: calc(100cqw / 1440);
+  position: relative;
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  aspect-ratio: 1440 / 886;
+  overflow: hidden;
+  background-color: #f8f9fd;
+  color: #454545;
+  font-family: var(--font-be-vietnam), sans-serif;
 }
 
-.ctas a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
-  font-weight: 500;
+/* ---------- Hero ---------- */
+.name {
+  position: absolute;
+  left: calc(51 * var(--u));
+  top: calc(55 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(212 * var(--u));
+  font-weight: 800;
+  line-height: 1.2;
+  color: #5965ff;
+  white-space: nowrap;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.robot {
+  position: absolute;
+  left: calc(472 * var(--u));
+  top: calc(214 * var(--u));
+  width: calc(535 * var(--u));
+  height: calc(682 * var(--u));
+  object-fit: cover;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.portfolio {
+  position: absolute;
+  left: calc(64 * var(--u));
+  top: calc(293 * var(--u));
+  font-size: calc(40 * var(--u));
+  font-weight: 400;
+  line-height: calc(34 * var(--u));
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.year {
+  position: absolute;
+  right: calc(61 * var(--u));
+  top: calc(294 * var(--u));
+  font-size: calc(40 * var(--u));
+  font-weight: 400;
+  line-height: calc(34 * var(--u));
+  text-align: right;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.slogan {
+  position: absolute;
+  left: calc(64 * var(--u));
+  top: calc(719 * var(--u));
+  font-size: calc(61 * var(--u));
+  font-weight: 400;
+  line-height: calc(52 * var(--u));
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+.dot {
+  color: #5965ff;
+}
 
+/* ---------- Tags ---------- */
+.tag {
+  position: absolute;
+  font-size: calc(20 * var(--u));
+  font-weight: 400;
+  line-height: calc(17 * var(--u));
+  white-space: nowrap;
+}
+
+.robotics { left: calc(1121 * var(--u)); top: calc(742 * var(--u)); }
+.cadDesign { right: calc(61 * var(--u)); top: calc(743 * var(--u)); text-align: right; }
+.stemOutreach { left: calc(895 * var(--u)); top: calc(790 * var(--u)); }
+.prototyping { left: calc(1076 * var(--u)); top: calc(790 * var(--u)); }
+.appliedResearch { right: calc(61 * var(--u)); top: calc(790 * var(--u)); text-align: right; }
+
+/* ---------- Mobile / Tablet ---------- */
+@media (max-width: 768px) {
   .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+    padding-top: var(--nav-h);
   }
-}
-
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
 }

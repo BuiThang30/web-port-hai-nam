@@ -1,0 +1,82 @@
+.page {
+  container-type: inline-size;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background-color: #ffffff;
+}
+
+/* 1 đơn vị thiết kế (px ở khung 1440) = var(--u) */
+.content {
+  --u: calc(100cqw / 1440);
+  width: 100%;
+  padding-bottom: calc(80 * var(--u));
+  color: #000;
+}
+
+.title {
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(212 * var(--u));
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  color: #5965ff;
+}
+
+.photo {
+  display: block;
+  width: calc(437 * var(--u));
+  height: calc(289 * var(--u));
+  margin: calc(11.6 * var(--u)) auto 0;
+  object-fit: cover;
+}
+
+.text {
+  width: calc(1174 * var(--u));
+  margin: calc(60 * var(--u)) auto 0;
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(16 * var(--u));
+  font-weight: 400;
+  line-height: calc(23 * var(--u));
+  text-align: justify;
+}
+
+.divider {
+  width: 100%;
+  height: 0;
+  margin-top: calc(69 * var(--u));
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+/* ---------- Mobile / Tablet ---------- */
+@media (max-width: 768px) {
+  .content {
+    padding-bottom: 40px;
+  }
+
+  .title {
+    font-size: 15.5cqw;
+  }
+
+  .photo {
+    width: calc(100% - 40px);
+    height: auto;
+    aspect-ratio: 437 / 289;
+    margin-top: 16px;
+  }
+
+  .text {
+    width: calc(100% - 40px);
+    margin-top: 28px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .divider {
+    margin-top: 40px;
+  }
+}

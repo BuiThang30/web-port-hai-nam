@@ -1,0 +1,200 @@
+.page {
+  /* Không dùng container-type ở đây: nó tạo stacking context
+     làm ảnh robot không thể nằm trên nav được */
+  width: 100%;
+  min-height: 100vh;
+  padding-top: var(--nav-h);
+  background-color: #ffffff;
+}
+
+/* 1 đơn vị thiết kế (px ở khung 1440) = var(--u) */
+.content {
+  --u: calc(100vw / 1440);
+  width: 100%;
+}
+
+/* ---------- Banner ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1440 / 820;
+  background-color: #5965ff;
+}
+
+/* Cắt chữ ở đáy banner */
+.bannerClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bannerText {
+  position: absolute;
+  left: calc(574 * var(--u));
+  top: calc(var(--top) * var(--u));
+  margin: 0;
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(117 * var(--u));
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.solid {
+  color: #ffffff;
+}
+
+.robot {
+  position: absolute;
+  z-index: 101;
+  left: 0.625%;
+  bottom: 0;
+  width: 56.6%;
+  height: 101.95%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ---------- Projects ---------- */
+.sections {
+  width: calc(1217 * var(--u));
+  margin: 0 auto;
+  padding-top: calc(172 * var(--u));
+  padding-bottom: calc(393 * var(--u));
+}
+
+.title {
+  margin-bottom: calc(30 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(64 * var(--u));
+  font-weight: 700;
+  line-height: calc(54 * var(--u));
+  color: #5965ff;
+  white-space: nowrap;
+}
+
+.text {
+  margin-bottom: calc(60 * var(--u));
+  font-family: var(--font-be-vietnam), sans-serif;
+  font-size: calc(24 * var(--u));
+  font-weight: 300;
+  line-height: calc(24 * var(--u));
+  color: #231057;
+  text-align: justify;
+}
+
+.stormText {
+  font-family: var(--font-42dot), sans-serif;
+  color: #000000;
+}
+
+.divider {
+  height: 0;
+  margin: calc(64 * var(--u)) 0 calc(34 * var(--u));
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+/* ---------- Media ---------- */
+.img {
+  object-fit: cover;
+}
+
+.triple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cell {
+  position: relative;
+  height: calc(266 * var(--u));
+}
+
+.single {
+  position: relative;
+  width: calc(735 * var(--u));
+  height: calc(481 * var(--u));
+}
+
+.storm {
+  display: flex;
+  gap: calc(11 * var(--u));
+}
+
+.map {
+  position: relative;
+  width: calc(411 * var(--u));
+  height: calc(445 * var(--u));
+}
+
+.screen {
+  position: relative;
+  width: calc(520 * var(--u));
+  height: calc(445 * var(--u));
+}
+
+/* ---------- Mobile / Tablet ---------- */
+@media (max-width: 768px) {
+  .sections {
+    width: calc(100% - 40px);
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    margin-bottom: 14px;
+    font-size: 28px;
+    line-height: 1.25;
+    white-space: normal;
+  }
+
+  .text {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  .divider {
+    margin: 36px 0 28px;
+  }
+
+  .triple {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cell {
+    height: auto;
+    aspect-ratio: 406 / 266;
+  }
+
+  .single {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 735 / 481;
+  }
+
+  .storm {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .map {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 411 / 445;
+  }
+
+  .screen {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 520 / 445;
+  }
+}
